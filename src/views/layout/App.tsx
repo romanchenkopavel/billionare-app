@@ -1,7 +1,7 @@
-import './App.css';
+import { WelcomeScreen } from 'views/welcome-screen/components';
 
 function App() {
-    return <div className="App">my app</div>;
+    return <WelcomeScreen />;
 }
 
 export default App;
