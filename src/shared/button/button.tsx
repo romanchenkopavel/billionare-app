@@ -2,18 +2,25 @@ import { EventHandlers } from 'shared/types';
 
 import cn from './button.module.css';
 
+const defaultTestId = 'button';
+
 interface ButtonProps {
     content?: string;
     onClick: EventHandlers.Click;
+    testId?: string;
 }
 
-const Button = ({ content, onClick }: ButtonProps) => {
+const Button = ({ content, onClick, testId }: ButtonProps) => {
     if (!content) {
         return null;
     }
 
     return (
-        <button className={cn.container} onClick={onClick}>
+        <button
+            data-testid={`${testId || defaultTestId}`}
+            className={cn.container}
+            onClick={onClick}
+        >
             <p className={cn.content}>{content}</p>
         </button>
     );
