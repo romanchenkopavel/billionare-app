@@ -11,18 +11,18 @@ describe('Button', () => {
         expect(screen.getByText(content)).toBeInTheDocument();
     });
 
-    // test('rendering nothing without content prop', () => {
-    //     render(<Button testId="testing" onClick={handleClick} />);
+    test('rendering nothing without content prop', () => {
+        render(<Button testId="testing" onClick={handleClick} />);
 
-    //     expect(screen.queryByTestId('testing')).not.toBeInTheDocument();
-    // });
+        expect(screen.queryByTestId('testing')).not.toBeInTheDocument();
+    });
 
-    // test('handling button click', () => {
-    //     render(<Button onClick={handleClick} content={content} />);
+    test('handling button click', () => {
+        render(<Button onClick={handleClick} content={content} />);
 
-    //     const button = screen.getByText(content);
-    //     fireEvent.click(button);
+        const button = screen.getByText(content);
+        fireEvent.click(button);
 
-    //     expect(handleClick).toHaveBeenCalled();
-    // });
+        expect(handleClick).toHaveBeenCalled();
+    });
 });
