@@ -7,11 +7,11 @@ import { useGameFlowDispatchContext } from 'shared/context';
 
 import cn from './welcome-screen.module.css';
 
-function WelcomeScreen() {
-  const dispatch = useGameFlowDispatchContext();
+function Welcome() {
+  const setStep = useGameFlowDispatchContext();
 
   const handleClick = () => {
-    dispatch(GameSteps.Playing);
+    setStep(GameSteps.Finish);
   };
 
   return (
@@ -27,4 +27,4 @@ function WelcomeScreen() {
   );
 }
 
-export default WelcomeScreen;
+export default Welcome;
