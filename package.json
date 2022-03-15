@@ -52,6 +52,7 @@
         }
     },
     "devDependencies": {
+        "eslint-config-airbnb": "19.0.4",
         "husky": "7.0.4",
         "lint-staged": "12.3.5",
         "tsc-files": "1.1.3"
