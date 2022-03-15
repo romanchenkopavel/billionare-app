@@ -1,0 +1,25 @@
+@import '~styles/vars.css';
+
+.content {
+  position: absolute;
+  align-items: center;
+  gap: 8px;
+  margin-top: 3px;
+  display: flex;
+  left: 46px;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 20px;
+
+  color: var(--orange-100);
+}
+
+.option {
+  font-weight: 400;
+}
+
+.container {
+  position: relative;
+}
