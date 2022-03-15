@@ -1,9 +1,9 @@
 import { useCallback, useMemo, useState } from 'react';
 
-import WelcomeScreen from 'views/welcome-screen/components';
-
 import { GameFlowContext, GameFlowDispatchContext } from 'shared/context';
 import { GameFlowParams, GameSteps } from 'shared/types';
+
+import GameFlow from './GameFlow';
 
 function App() {
   const [gameState, setGameStep] = useState<GameFlowParams>({
@@ -21,7 +21,7 @@ function App() {
   return (
     <GameFlowContext.Provider value={value}>
       <GameFlowDispatchContext.Provider value={dispatchGameStep}>
-        <WelcomeScreen />
+        <GameFlow />
       </GameFlowDispatchContext.Provider>
     </GameFlowContext.Provider>
   );
