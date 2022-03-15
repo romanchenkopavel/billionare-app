@@ -1,21 +1,39 @@
 @import '~styles/vars.css';
 
 .container {
-    width: 296px;
-    height: 64px;
-    border-radius: 12px;
-    background-color: var(--orange-100);
-    border-style: none;
+  width: 296px;
+  height: 64px;
+  border-radius: 12px;
+  background-color: var(--orange-100);
+  border-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.container:hover {
+  background-color: var(--orange-80);
+}
+
+.container:active {
+  background-color: var(--orange-120);
 }
 
 .content {
-    font-size: 20px;
-    color: var(--white-100);
+  font-size: 20px;
+  color: var(--white-100);
 }
 
-@media (max-width: 640px) {
-    .container {
-        position: relative;
-        top: 50%;
-    }
+@media only screen and (max-width: 640px) {
+  .container {
+    position: relative;
+    top: 50%;
+    height: 48px;
+    width: 288px;
+  }
+
+  .content {
+    font-size: 14px;
+  }
 }
