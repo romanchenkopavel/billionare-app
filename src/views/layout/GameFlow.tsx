@@ -3,12 +3,13 @@ import { ReactNode } from 'react';
 import { useGameFlowContext } from 'shared/context';
 import { GameSteps } from 'shared/types';
 
-import WelcomeScreen from 'views/welcome-screen/components';
+import GameOver from 'views/game-over';
+import Welcome from 'views/welcome';
 
 const StepComponents = new Map<keyof typeof GameSteps, ReactNode>([
-  [GameSteps.Start, <WelcomeScreen />],
+  [GameSteps.Start, <Welcome />],
   [GameSteps.Playing, <div>playig</div>],
-  [GameSteps.Finish, <div>finish</div>],
+  [GameSteps.Finish, <GameOver />],
 ]);
 
 function GameFlow(): JSX.Element {

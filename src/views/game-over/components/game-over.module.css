@@ -1,0 +1,63 @@
+@import '~styles/vars.css';
+
+.container {
+  height: 100%;
+  background-color: var(--black-5);
+
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* padding: 24px; */
+}
+
+.earned {
+  font-weight: 600;
+  font-size: 56px;
+  margin-bottom: 64px;
+}
+
+.totalScore {
+  font-size: 32px;
+  opacity: 0.5;
+  font-weight: 600;
+}
+
+.rewardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px;
+}
+
+.logo {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media (max-width: 1200px) {
+  .greetingBox {
+    align-items: center;
+  }
+
+  .earned {
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .earned {
+    font-size: 2.5rem;
+  }
+
+  .rewardContent {
+    width: 100%;
+    padding-top: 50px;
+    align-items: center;
+  }
+}
