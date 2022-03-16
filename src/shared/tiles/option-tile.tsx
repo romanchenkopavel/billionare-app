@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import useHover from 'shared/hooks/useHover';
+
 import { ReactComponent as WrongOptionTile } from 'assets/wrong-option-tile.svg';
 import { ReactComponent as SelectedOptionTile } from 'assets/selected-option-tile.svg';
 import { ReactComponent as HoveredOptionTile } from 'assets/hovered-option-tile.svg';
@@ -26,7 +28,7 @@ const tileComponents = {
 
 function OptionTile({ state, label, option }: OptionTileProps) {
   const [tileState, setTileState] = useState(state);
-  const [hovered, setIsHovered] = useState(false);
+  const [hoverRef, hovered] = useHover<HTMLDivElement>();
 
   useEffect(() => {
     if (state === TileStates.Inactive && hovered) {
@@ -36,22 +38,13 @@ function OptionTile({ state, label, option }: OptionTileProps) {
     }
   }, [hovered, state]);
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const hanldeMouseLeave = () => {
-    setIsHovered(false);
-  };
-
   const Tile = tileComponents[tileState];
 
   return (
     <div
+      ref={hoverRef}
       data-testid={`tile-${tileState}`}
       className={styles.container}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={hanldeMouseLeave}
     >
       <div className={styles.content}>
         <p className={styles.label}>{label}</p>
