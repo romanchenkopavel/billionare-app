@@ -39,7 +39,8 @@
   },
   "jest": {
     "coveragePathIgnorePatterns": [
-      ".index.tsx"
+      ".index.tsx",
+      "types.ts"
     ],
     "coverageReporters": [
       "json",
