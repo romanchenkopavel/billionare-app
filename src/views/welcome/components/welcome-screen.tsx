@@ -19,7 +19,7 @@ function Welcome() {
       <div className={cn.content}>
         <img className={cn.logo} src={handLogo} alt="thumbs up" />
         <div className={cn.greetingBox}>
-          <p className={cn.greeting}>Who wants to be a millionaire?</p>
+          <span className={cn.greeting}>Who wants to be a millionaire?</span>
           <Button onClick={handleClick} content="Start" />
         </div>
       </div>

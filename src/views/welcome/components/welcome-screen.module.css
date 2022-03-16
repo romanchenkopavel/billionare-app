@@ -22,12 +22,14 @@
   font-weight: 600;
   font-size: 56px;
   max-width: 60%;
+  margin-bottom: 64px;
 }
 
 .greetingBox {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 24px;
 }
 
 .logo {
@@ -39,24 +41,24 @@
   .greetingBox {
     align-items: center;
   }
+}
+
+@media (max-width: 1425px) {
+  .greetingBox {
+    align-items: center;
+  }
 
   .greeting {
     text-align: center;
   }
-}
 
-@media (min-width: 1200px) {
-  .greetingBox {
-    padding: 24px;
+  .content {
+    justify-content: center;
   }
 }
 
 @media (max-width: 640px) {
   .greeting {
     font-size: 2.5rem;
-  }
-
-  .greetingBox {
-    align-items: center;
   }
 }
