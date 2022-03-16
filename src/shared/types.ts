@@ -19,3 +19,9 @@ export type GameFlowParams =
   | undefined;
 
 export type GameFlowDispatchParams = (step: keyof typeof GameSteps) => void;
+
+export type Rewards = number[];
+
+export type GameData = {
+  rewards: Rewards;
+};
