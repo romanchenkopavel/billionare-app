@@ -27,3 +27,9 @@
   flex-wrap: wrap;
   row-gap: 30px;
 }
+
+.rewards {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}

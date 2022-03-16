@@ -1,15 +1,17 @@
-import Options from './options';
+import useCurrentRoundConfig from 'shared/hooks/useCurrentRoundConfig';
 
-import styles from './playing.module.css';
+import Options from './options';
 import Rewards from './rewards';
 
+import styles from './playing.module.css';
+
 function Playing() {
+  const { question } = useCurrentRoundConfig();
+
   return (
     <div className={styles.container}>
       <div className={styles.qaSection}>
-        <span className={styles.question}>
-          How old your elder brother was 10 years before you was born, mate?
-        </span>
+        <span className={styles.question}>{question}</span>
         <Options />
       </div>
       <Rewards />
