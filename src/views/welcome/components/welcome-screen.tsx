@@ -11,7 +11,7 @@ function Welcome() {
   const setStep = useGameFlowDispatchContext();
 
   const handleClick = () => {
-    setStep(GameSteps.Finish);
+    setStep(GameSteps.Playing);
   };
 
   return (
