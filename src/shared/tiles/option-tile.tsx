@@ -48,6 +48,7 @@ function OptionTile({ state, label, option }: OptionTileProps) {
 
   return (
     <div
+      data-testid={`tile-${tileState}`}
       className={styles.container}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={hanldeMouseLeave}
