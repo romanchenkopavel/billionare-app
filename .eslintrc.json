@@ -22,7 +22,8 @@
     "react/jsx-filename-extension": [0],
     "import/extensions": "off",
     "no-shadow": "off",
-    "@typescript-eslint/no-shadow": ["error"]
+    "@typescript-eslint/no-shadow": ["error"],
+    "object-curly-newline": "off"
   },
   "settings": {
     "import/resolver": {

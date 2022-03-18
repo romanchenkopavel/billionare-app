@@ -1,0 +1,116 @@
+{
+  "rewards": [
+    500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000, 250000, 500000,
+    1000000
+  ],
+  "rounds": [
+    {
+      "question": "How old your elder brother was 10 years before you was born, mate?",
+      "options": [
+        {
+          "label": "A",
+          "content": "12",
+          "value": "a"
+        },
+        {
+          "label": "B",
+          "content": "13",
+          "value": "b"
+        },
+        {
+          "label": "C",
+          "content": "14",
+          "value": "c"
+        },
+        {
+          "label": "D",
+          "content": "15",
+          "value": "d"
+        }
+      ],
+      "round": 1,
+      "answers": ["a"]
+    },
+    {
+      "question": "How old your elder brother was 10 years before you was born, mate?",
+      "options": [
+        {
+          "label": "A",
+          "content": "225",
+          "value": "a"
+        },
+        {
+          "label": "B",
+          "content": "235",
+          "value": "b"
+        },
+        {
+          "label": "C",
+          "content": "245",
+          "value": "c"
+        },
+        {
+          "label": "D",
+          "content": "255",
+          "value": "d"
+        }
+      ],
+      "round": 2,
+      "answers": ["b"]
+    },
+    {
+      "question": "How old your elder brother was 10 years before you was born, mate?",
+      "options": [
+        {
+          "label": "A",
+          "content": "312",
+          "value": "a"
+        },
+        {
+          "label": "B",
+          "content": "313",
+          "value": "b"
+        },
+        {
+          "label": "C",
+          "content": "314",
+          "value": "c"
+        },
+        {
+          "label": "D",
+          "content": "315",
+          "value": "d"
+        }
+      ],
+      "round": 3,
+      "answers": ["c", "d"]
+    },
+    {
+      "question": "How old your elder brother was 10 years before you was born, mate?",
+      "options": [
+        {
+          "label": "A",
+          "content": "425",
+          "value": "a"
+        },
+        {
+          "label": "B",
+          "content": "435",
+          "value": "b"
+        },
+        {
+          "label": "C",
+          "content": "445",
+          "value": "c"
+        },
+        {
+          "label": "D",
+          "content": "455",
+          "value": "d"
+        }
+      ],
+      "round": 4,
+      "answers": ["d"]
+    }
+  ]
+}

@@ -3,4 +3,4 @@ export {
   useGameFlowContext,
   GameFlowDispatchContext,
   useGameFlowDispatchContext,
-} from './context';
+} from './gameFlow';

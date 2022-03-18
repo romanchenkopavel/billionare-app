@@ -23,3 +23,23 @@
 .container {
   position: relative;
 }
+
+.amount {
+  position: absolute;
+  left: 40%;
+  font-size: 20px;
+}
+
+.rewardTile {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.earned {
+  color: var(--black-40);
+}
+
+.current {
+  color: var(--orange-100);
+}
