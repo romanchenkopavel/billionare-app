@@ -4,7 +4,10 @@ import handLogo from 'assets/hand.png';
 import Button from 'shared/button';
 
 import { useGameFlowDispatchContext } from 'shared/context';
-import { useCurrenTryStateContext } from 'shared/context/currentTry';
+import {
+  useCurrenTryStateContext,
+  useCurrentTryDispatchContext,
+} from 'shared/context/currentTry';
 import useFormatAmount from 'shared/hooks/useFormatAmount';
 import useGameConfig from 'shared/hooks/useGameConfig';
 
@@ -17,9 +20,11 @@ function GameOver() {
 
   const { round: currentRound } = useCurrenTryStateContext();
   const { rewards } = useGameConfig();
+  const setRound = useCurrentTryDispatchContext();
 
   const handleClick = () => {
     setGameStep(GameSteps.Start);
+    setRound(0);
   };
 
   const earnedAmount = useFormatAmount({ amount: rewards[currentRound] });

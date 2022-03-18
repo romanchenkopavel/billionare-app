@@ -1,4 +1,6 @@
-import { SyntheticEvent, useEffect, useState } from 'react';
+/* eslint-disable no-confusing-arrow */
+/* eslint-disable implicit-arrow-linebreak */
+import { MouseEvent, useEffect, useState } from 'react';
 
 import OptionTile from 'shared/tiles/option-tile';
 
@@ -6,9 +8,10 @@ import {
   useCurrenTryStateContext,
   useCurrentTryDispatchContext,
 } from 'shared/context/currentTry';
+import { useGameFlowDispatchContext } from 'shared/context';
 import useCurrentRoundConfig from 'shared/hooks/useCurrentRoundConfig';
 import useUpdateOptions from 'shared/hooks/useUpdateOptions';
-import { useGameFlowDispatchContext } from 'shared/context';
+import useIsLastRound from 'shared/hooks/useIsLastRound';
 
 import { GameSteps } from 'shared/types';
 import TileStates from 'shared/tiles/constants';
@@ -22,23 +25,31 @@ function Options() {
 
   const { round: currentRound } = useCurrenTryStateContext();
   const setRound = useCurrentTryDispatchContext();
-
   const setStep = useGameFlowDispatchContext();
 
   const updateOptions = useUpdateOptions();
+  const isLastRound = useIsLastRound({ currentRound });
 
   useEffect(() => {
     setAnswersCount(answers.length);
     setCurrentOptions(options);
   }, [options, answers]);
 
-  const handleClick = (e: SyntheticEvent, value: string) => {
+  const winGame = () => {
+    setStep(GameSteps.Finish);
+    setRound(currentRound + 1);
+  };
+
+  const handleClick = (e: MouseEvent, value: string) => {
     if (answersCount === 1 && answers.includes(value)) {
       setCurrentOptions(
         updateOptions([...currentOptions], [value], TileStates.Correct),
       );
 
-      setTimeout(() => setRound(currentRound + 1), 1000);
+      setTimeout(
+        () => (!isLastRound ? setRound(currentRound + 1) : winGame()),
+        1000,
+      );
     } else if (answersCount !== 1 && answers.includes(value)) {
       setCurrentOptions(
         updateOptions([...currentOptions], [value], TileStates.Correct),

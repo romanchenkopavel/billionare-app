@@ -5,8 +5,7 @@ import {
   CurrentyTryDispatchContext,
   CurrentyTryStateContext,
 } from 'shared/context/currentTry';
-import useControlGameFlow from 'shared/hooks/useControlGameFlow';
-import { GameSteps, CurrentTryState, CurrentTryDispatch } from 'shared/types';
+import { GameSteps, CurrentTryState } from 'shared/types';
 
 import GameOver from 'views/game-over';
 import Playing from 'views/playing';
@@ -31,8 +30,6 @@ function GameFlow(): JSX.Element {
     },
     [setCurrentTryState],
   );
-
-  useControlGameFlow({ currentRound: currentTryState.round });
 
   return (
     <CurrentyTryStateContext.Provider value={stateValue}>
