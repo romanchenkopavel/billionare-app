@@ -26,10 +26,19 @@
   display: flex;
   flex-wrap: wrap;
   row-gap: 30px;
+  max-width: 80%;
 }
 
 .rewards {
   display: flex;
   flex-direction: column-reverse;
   row-gap: 8px;
+}
+
+@media (max-width: 480px) {
+  .qaSection {
+    text-align: center;
+    padding: 80px 0;
+    align-items: center;
+  }
 }
