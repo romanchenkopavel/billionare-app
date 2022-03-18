@@ -1,12 +1,13 @@
+import cn from 'classnames';
+
 import { ReactComponent as AvailableRewardTile } from 'assets/available-reward-tile.svg';
-import { ReactComponent as EarnedRewardTile } from 'assets/earned-reward-tile.svg';
 import { ReactComponent as CurrentRewardTile } from 'assets/current-reward-tile.svg';
 
 import useFormatAmount from 'shared/hooks/useFormatAmount';
 
 import styles from './tiles.module.css';
 
-enum RewardTileState {
+export enum RewardTileState {
   Earned = 'Earned',
   Available = 'Available',
   Current = 'Current',
@@ -18,20 +19,33 @@ interface RewardTileProps {
 }
 
 const TileComponents = {
-  [RewardTileState.Earned]: EarnedRewardTile,
-  [RewardTileState.Available]: AvailableRewardTile,
-  [RewardTileState.Current]: CurrentRewardTile,
+  [RewardTileState.Available]: <AvailableRewardTile />,
+  [RewardTileState.Current]: <CurrentRewardTile />,
 };
 
 function RewardTile({ amount, state }: RewardTileProps) {
   const formattedAmount = useFormatAmount({ amount });
 
-  const Tile = TileComponents[state];
+  const renderTile = () => {
+    if (state !== RewardTileState.Earned) {
+      return TileComponents[state];
+    }
+
+    return TileComponents[RewardTileState.Available];
+  };
+
+  const isEarned = state === RewardTileState.Earned;
+  const isCurrent = state === RewardTileState.Current;
 
   return (
-    <div className={styles.rewardTile}>
+    <div
+      className={cn(styles.rewardTile, {
+        [styles.earned]: isEarned,
+        [styles.current]: isCurrent,
+      })}
+    >
       <span className={styles.amount}>{formattedAmount}</span>
-      <Tile />
+      {renderTile()}
     </div>
   );
 }
