@@ -1,7 +1,8 @@
+import { useCurrenTryStateContext } from 'shared/context/currentTry';
 import useGameConfig from './useGameConfig';
 
 function useCurrentRoundConfig() {
-  const currentRound = 0;
+  const { round: currentRound } = useCurrenTryStateContext();
   const { rounds } = useGameConfig();
 
   return rounds[currentRound];
