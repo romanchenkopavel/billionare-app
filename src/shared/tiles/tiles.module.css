@@ -35,3 +35,11 @@
   position: relative;
   align-items: center;
 }
+
+.earned {
+  color: var(--black-40);
+}
+
+.current {
+  color: var(--orange-100);
+}
