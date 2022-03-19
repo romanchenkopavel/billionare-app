@@ -24,7 +24,9 @@
     "eject": "react-scripts eject",
     "lint": "eslint src --color",
     "lint-staged": "lint-staged --config lint-staged.js",
-    "husky-install": "husky install"
+    "husky-install": "husky install",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "browserslist": {
     "production": [
@@ -58,6 +60,7 @@
   },
   "devDependencies": {
     "eslint-config-airbnb": "19.0.4",
+    "gh-pages": "3.2.3",
     "husky": "7.0.4",
     "lint-staged": "12.3.5",
     "tsc-files": "1.1.3"
