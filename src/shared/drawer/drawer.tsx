@@ -7,12 +7,13 @@ import useMediaQuery from 'shared/hooks/useMediaQuery';
 
 import styles from './drawer.module.css';
 
-interface DrawerProps {
+export interface DrawerProps {
   children: ReactNode;
 }
 
 function Drawer({ children }: DrawerProps) {
   const isMobile = useMediaQuery('(max-width: 768px)');
+
   const [isDrawerOpened, setIsDrawerOpened] = useState(true);
 
   const handleClose = () => {
@@ -26,12 +27,20 @@ function Drawer({ children }: DrawerProps) {
   if (isMobile) {
     return isDrawerOpened ? (
       <div className={styles.mobileDrawer}>
-        <CloseIcon className={styles.icon} onClick={handleClose} />
+        <CloseIcon
+          data-testid="drawer-close-icon"
+          className={styles.icon}
+          onClick={handleClose}
+        />
         {children}
       </div>
     ) : (
       <div>
-        <MenuBurger className={styles.icon} onClick={handleOpen} />
+        <MenuBurger
+          data-testid="drawer-burger-icon"
+          className={styles.icon}
+          onClick={handleOpen}
+        />
       </div>
     );
   }
