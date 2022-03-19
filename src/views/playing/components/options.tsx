@@ -71,6 +71,7 @@ function Options() {
     <div className={styles.options}>
       {currentOptions.map(({ label, content, value, state }) => (
         <OptionTile
+          key={`${label}-${value}-${state}`}
           state={state || TileStates.Inactive}
           handleClick={(e) => handleClick(e, value)}
           label={label}

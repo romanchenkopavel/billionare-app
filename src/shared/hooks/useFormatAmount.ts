@@ -1,4 +1,6 @@
-type NumberFormatterConfig = Intl.NumberFormatOptions & { locale: string };
+export type NumberFormatterConfig = Intl.NumberFormatOptions & {
+  locale?: string;
+};
 
 interface NumberFormatter {
   amount: number;

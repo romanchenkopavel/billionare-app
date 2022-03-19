@@ -2,6 +2,11 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 import App from '../App';
 
+jest.mock('views/playing', () => ({
+  __esModule: true,
+  default: () => <div>Playing</div>,
+}));
+
 describe('App', () => {
   test('rendering component', () => {
     render(<App />);
@@ -16,6 +21,6 @@ describe('App', () => {
     const startGameButton = screen.getByText('Start');
     fireEvent.click(startGameButton);
 
-    expect(screen.getByText('Total score:')).toBeInTheDocument();
+    expect(screen.getByText('Playing')).toBeInTheDocument();
   });
 });

@@ -39,12 +39,15 @@ function RewardTile({ amount, state }: RewardTileProps) {
 
   return (
     <div
+      data-testid="amount-wrapper"
       className={cn(styles.rewardTile, {
         [styles.earned]: isEarned,
         [styles.current]: isCurrent,
       })}
     >
-      <span className={styles.amount}>{formattedAmount}</span>
+      <span data-testid="amount" className={styles.amount}>
+        {formattedAmount}
+      </span>
       {renderTile()}
     </div>
   );

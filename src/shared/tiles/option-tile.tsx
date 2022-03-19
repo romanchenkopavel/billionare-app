@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react';
 
 import useHover from 'shared/hooks/useHover';
+import useMediaQuery from 'shared/hooks/useMediaQuery';
 
 import { ReactComponent as WrongOptionTile } from 'assets/wrong-option-tile.svg';
 import { ReactComponent as SelectedOptionTile } from 'assets/selected-option-tile.svg';
 import { ReactComponent as HoveredOptionTile } from 'assets/hovered-option-tile.svg';
 import { ReactComponent as InactiveOptionTile } from 'assets/inactive-option-tile.svg';
 import { ReactComponent as CorrectOptionTile } from 'assets/correct-option-tile.svg';
+
+import { ReactComponent as WrongOptionTileMobile } from 'assets/wrong-option-mobile.svg';
+import { ReactComponent as SelectedOptionTileMobile } from 'assets/selected-option-mobile.svg';
+import { ReactComponent as InactiveOptionTileMobile } from 'assets/inactive-option-mobile.svg';
+import { ReactComponent as CorrectOptionTileMobile } from 'assets/correct-option-mobile.svg';
 
 import { EventHandlers } from 'shared/types';
 import TileStates from './constants';
@@ -20,7 +26,15 @@ interface OptionTileProps {
   handleClick: EventHandlers.Click<HTMLDivElement>;
 }
 
-const tileComponents = {
+const mobileTiles = {
+  [TileStates.Inactive]: InactiveOptionTileMobile,
+  [TileStates.Correct]: CorrectOptionTileMobile,
+  [TileStates.Wrong]: WrongOptionTileMobile,
+  [TileStates.Selected]: SelectedOptionTileMobile,
+  [TileStates.Hovered]: InactiveOptionTileMobile,
+};
+
+const tiles = {
   [TileStates.Inactive]: InactiveOptionTile,
   [TileStates.Correct]: CorrectOptionTile,
   [TileStates.Wrong]: WrongOptionTile,
@@ -31,8 +45,11 @@ const tileComponents = {
 const SpaceBarKey = ' ';
 
 function OptionTile({ state, label, option, handleClick }: OptionTileProps) {
+  const isMobile = useMediaQuery('(max-width: 768px)');
   const [tileState, setTileState] = useState(state);
   const [hoverRef, hovered] = useHover<HTMLDivElement>();
+
+  const tileComponents = isMobile ? mobileTiles : tiles;
 
   useEffect(() => {
     if (state === TileStates.Inactive && hovered) {
@@ -47,7 +64,7 @@ function OptionTile({ state, label, option, handleClick }: OptionTileProps) {
   const handleKeyDown: EventHandlers.KeyDown<HTMLDivElement> = (event) => {
     if (event.key === SpaceBarKey) {
       // eslint-disable-next-line no-console
-      console.log(event.timeStamp);
+      console.log(event.type);
     }
   };
 
@@ -58,7 +75,7 @@ function OptionTile({ state, label, option, handleClick }: OptionTileProps) {
       role="button"
       onKeyDown={handleKeyDown}
       ref={hoverRef}
-      data-testid={`tile-${tileState}`}
+      data-testid={`tile-${tileState}-${label}`}
       className={styles.container}
     >
       <div className={styles.content}>

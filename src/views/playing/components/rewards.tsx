@@ -28,7 +28,13 @@ function Rewards() {
         {rewards.map((reward, idx) => {
           const tileState = getRewardState(idx, currentRound);
 
-          return <RewardTile amount={reward} state={tileState} />;
+          return (
+            <RewardTile
+              key={`${tileState}-${reward}`}
+              amount={reward}
+              state={tileState}
+            />
+          );
         })}
       </div>
     </Drawer>
