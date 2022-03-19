@@ -22,6 +22,7 @@ function Options() {
   const { options, answers } = useCurrentRoundConfig();
   const [currentOptions, setCurrentOptions] = useState(options);
   const [answersCount, setAnswersCount] = useState(answers.length);
+  const [isProcessingAnswer, setIsProccessingAnswer] = useState(false);
 
   const { round: currentRound } = useCurrenTryStateContext();
   const setRound = useCurrentTryDispatchContext();
@@ -38,18 +39,23 @@ function Options() {
   const winGame = () => {
     setStep(GameSteps.Finish);
     setRound(currentRound + 1);
+    setIsProccessingAnswer(false);
+  };
+
+  const handleAnswer = () => {
+    setRound(currentRound + 1);
+    setIsProccessingAnswer(false);
   };
 
   const handleClick = (e: MouseEvent, value: string) => {
     if (answersCount === 1 && answers.includes(value)) {
+      setIsProccessingAnswer(true);
+
       setCurrentOptions(
         updateOptions([...currentOptions], [value], TileStates.Correct),
       );
 
-      setTimeout(
-        () => (!isLastRound ? setRound(currentRound + 1) : winGame()),
-        1000,
-      );
+      setTimeout(() => (!isLastRound ? handleAnswer() : winGame()), 1000);
     } else if (answersCount !== 1 && answers.includes(value)) {
       setCurrentOptions(
         updateOptions([...currentOptions], [value], TileStates.Correct),
@@ -57,10 +63,11 @@ function Options() {
 
       setAnswersCount((prevCount) => prevCount - 1);
     } else {
+      setIsProccessingAnswer(true);
+
       setCurrentOptions(
         updateOptions([...currentOptions], [value], TileStates.Wrong),
       );
-
       setTimeout(() => setStep(GameSteps.Finish), 1000);
     }
 
@@ -73,7 +80,7 @@ function Options() {
         <OptionTile
           key={`${label}-${value}-${state}`}
           state={state || TileStates.Inactive}
-          handleClick={(e) => handleClick(e, value)}
+          handleClick={(e) => !isProcessingAnswer && handleClick(e, value)}
           label={label}
           option={content}
         />
