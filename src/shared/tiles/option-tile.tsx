@@ -64,7 +64,7 @@ function OptionTile({ state, label, option, handleClick }: OptionTileProps) {
   const handleKeyDown: EventHandlers.KeyDown<HTMLDivElement> = (event) => {
     if (event.key === SpaceBarKey) {
       // eslint-disable-next-line no-console
-      console.log(event.timeStamp);
+      console.log(event.type);
     }
   };
 
@@ -75,7 +75,7 @@ function OptionTile({ state, label, option, handleClick }: OptionTileProps) {
       role="button"
       onKeyDown={handleKeyDown}
       ref={hoverRef}
-      data-testid={`tile-${tileState}`}
+      data-testid={`tile-${tileState}-${label}`}
       className={styles.container}
     >
       <div className={styles.content}>
