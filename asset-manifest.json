@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/billionare-app/static/css/main.17625e08.css",
+    "main.js": "/billionare-app/static/js/main.164b343c.js",
+    "static/media/hand.png": "/billionare-app/static/media/hand.a08d83c13aea79ade660.png",
+    "index.html": "/billionare-app/index.html",
+    "static/media/close.svg": "/billionare-app/static/media/close.67d0a39e8f2afba171e53b6f3531670b.svg",
+    "static/media/menu-burger.svg": "/billionare-app/static/media/menu-burger.2e4db3a986ee50d80ed0a331fba7eda5.svg",
+    "static/media/correct-option-mobile.svg": "/billionare-app/static/media/correct-option-mobile.309dc9b656142a3a5d2016cd84083225.svg",
+    "static/media/selected-option-mobile.svg": "/billionare-app/static/media/selected-option-mobile.8f5eba91fa4cef04da16dfe2469de130.svg",
+    "static/media/wrong-option-mobile.svg": "/billionare-app/static/media/wrong-option-mobile.2897a1965405cb704ac1ee340f7f7d1d.svg",
+    "static/media/inactive-option-mobile.svg": "/billionare-app/static/media/inactive-option-mobile.84707b9683e5221d360c83ed3d173d8c.svg",
+    "static/media/correct-option-tile.svg": "/billionare-app/static/media/correct-option-tile.fde3207388aeaf27cba720ff240cfa91.svg",
+    "static/media/selected-option-tile.svg": "/billionare-app/static/media/selected-option-tile.23c575858698fd4e1fc7d723da4dfac1.svg",
+    "static/media/hovered-option-tile.svg": "/billionare-app/static/media/hovered-option-tile.cf92143351614638faf4771aa19f1074.svg",
+    "static/media/inactive-option-tile.svg": "/billionare-app/static/media/inactive-option-tile.15869605c9839d0c2c8e46596ddd1125.svg",
+    "static/media/wrong-option-tile.svg": "/billionare-app/static/media/wrong-option-tile.6e5536b91d98c2d8f1baa1f8d012eaa6.svg",
+    "static/media/available-reward-tile.svg": "/billionare-app/static/media/available-reward-tile.119ea1bd4e3e7f43446466a1d2a2792c.svg",
+    "static/media/current-reward-tile.svg": "/billionare-app/static/media/current-reward-tile.02b5c29064c2e0df4febb5bef14266f6.svg",
+    "main.17625e08.css.map": "/billionare-app/static/css/main.17625e08.css.map",
+    "main.164b343c.js.map": "/billionare-app/static/js/main.164b343c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.17625e08.css",
+    "static/js/main.164b343c.js"
+  ]
+}
